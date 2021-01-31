@@ -73,10 +73,10 @@ export class LoginComponent implements OnInit {
         }
       })  
     } 
-    sessionStorage['first_name'] = 'Shivraj'
-sessionStorage['last_name'] = 'Dhanave' 
-this.toastr.success(`welcome ${sessionStorage['first_name']}`)
-this.router.navigate(['/home'])   
+//     sessionStorage['first_name'] = 'Shivraj'
+// sessionStorage['last_name'] = 'Dhanave' 
+// this.toastr.success(`welcome ${sessionStorage['first_name']}`)
+// this.router.navigate(['/home'])   
   }
 } 
 
