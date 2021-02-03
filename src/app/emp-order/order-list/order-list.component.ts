@@ -1,6 +1,5 @@
 import { CustomerDetailsComponent } from './../customer-details/customer-details.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { OrderService } from './../../order/order.service';
 import { Component, OnInit } from '@angular/core';
 import { EmpOrderService } from '../emp-order.service';
 
@@ -31,11 +30,13 @@ export class OrderListComponent implements OnInit {
   
   loadOrder(){   
     // console.log(this.temp)
+    //to get all orders in database//
     this.empOrderService 
     .getOrder() 
     .subscribe(response => {
       if (response['status'] = 'success'){
         this.orders = response['data']
+        //to get all the customer id to show in the first column
         for (let i = 0; i < this.orders.length - 1; i++) {
           const j = i+1
           if(this.orders[i]['customer_id'] != this.orders[j]['customer_id']){
@@ -44,6 +45,7 @@ export class OrderListComponent implements OnInit {
         }
         this.cust_id.push(this.orders[this.orders.length-1]['customer_id'])
         
+        //getting orders by cust_id
         for (let i = 0; i < this.cust_id.length; i++) {
           this.empOrderService.getOrderId(this.cust_id[i])
           .subscribe(response => {
@@ -54,7 +56,6 @@ export class OrderListComponent implements OnInit {
               this.order_status.push('Not delivered')
             } else {
               this.order_status.push('delivered') 
-              
             } 
             // this.order_status.push(this.temp[0]['order_status'])
             for (let index = 0; index < this.temp.length; index++) {
@@ -64,12 +65,6 @@ export class OrderListComponent implements OnInit {
             this.totalAmount=0
           })
         }
-        // console.log(this.temp)
-        // for (let index = 1; index < this.cust.length; index++) {
-          //   this.temp1.push(this.cust[index])
-          
-          //   this.totalAmount += parseFloat(this.cust[index]['total_amount'])
-          // }
           this.tot_amt.push(this.totalAmount)
           // console.log(this.tot_amt)
       }else if (response == null){

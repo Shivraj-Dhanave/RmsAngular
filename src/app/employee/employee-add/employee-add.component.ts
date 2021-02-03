@@ -66,7 +66,7 @@ export class EmployeeAddComponent implements OnInit {
           }
         })
       }
-    }else{
+    }else{ 
       if(this.username.length <= 8){
         this.toastr.error('username should be of more than 8 characters')
       }else{ 

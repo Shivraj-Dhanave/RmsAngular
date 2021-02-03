@@ -16,7 +16,7 @@ export class EditProfileComponent implements OnInit {
   lastname=''
   address=''
   city=''
-  country=''
+  country='India'
   zip=0
   phone_no=0
   password=''
