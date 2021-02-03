@@ -72,11 +72,11 @@ export class LoginComponent implements OnInit {
           this.toastr.error('invalid username or password')
         }
       })  
-    } 
-    sessionStorage['first_name'] = 'Shivraj'
-sessionStorage['last_name'] = 'Dhanave' 
-this.toastr.success(`welcome ${sessionStorage['first_name']}`)
-this.router.navigate(['/home'])   
+//     } 
+//     sessionStorage['first_name'] = 'Shivraj'
+// sessionStorage['last_name'] = 'Dhanave' 
+// this.toastr.success(`welcome ${sessionStorage['first_name']}`)
+// this.router.navigate(['/home'])   
   }
 } 
 
